@@ -1,0 +1,49 @@
+# docker compose version
+version: '3.7'
+# all the containers have to declare inside services
+services:
+  qmsx-service:
+    container_name: qmsx-service
+    image: qmsx-service:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - qmsx-service-network
+      - smartwms-network
+    volumes:
+      - .:/app
+      - /app/node_modules
+    restart: unless-stopped
+  migration:
+    image: qmsx-service:1.0.0
+    env_file:
+      - .env
+    command: npm run migrate:run
+    depends_on:
+      - postgres
+    networks:
+      - qmsx-service-network
+    # postgres
+  postgres:
+    container_name: qmsx-service-db
+    image: postgres:13
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    ports:
+      - ${DATABASE_CONTAINER_PORT}:${DATABASE_PORT}
+    networks:
+      - qmsx-service-network
+    restart: unless-stopped
+networks:
+  qmsx-service-network:
+  smartwms-network:
+    external: true
+
+# save (persist) data
+volumes:
+  db_data: {}

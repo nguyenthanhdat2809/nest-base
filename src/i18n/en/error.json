@@ -1,0 +1,11 @@
+{
+  "NOT_FOUND" : "Data not found",
+  "INTERNAL_SERVER_ERROR" : "Server error",
+  "ERROR_GROUP_NOT_FOUND" : "Error Group data does not exist",
+  "REQUEST_ERROR_GROUP_NOT_FOUND" : "Error group data not found",
+  "ERROR_GROUP_ALREADY_EXISTS" : "Error group data is duplicated",
+  "ERROR_GROUP_NOT_OWNER": "The error group is not owned by the user",
+  "DB_RECORD_EXISTED": "Already exists {0} in the database",
+  "CAN_NOT_DELETE" : "This log data cannot be deleted",
+  "SUCCESS" : "Successful"
+}

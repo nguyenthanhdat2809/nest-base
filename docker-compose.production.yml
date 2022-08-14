@@ -1,0 +1,9 @@
+# docker compose version
+version: '3.7'
+
+services:
+  qmsx-service:
+    build:
+      context: .
+      target: production
+    command: npm run start:prod

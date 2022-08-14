@@ -1,0 +1,110 @@
+stages:
+#    - analysis
+    - prebuildd6  
+    - buildd6
+    - deployd6
+#    - deploySNP
+
+variables:
+    SONAR_URL: https://sonar.vti.com.vn
+    SONAR_TOKEN: $SONAR_TOKEN
+    DOCKER_DRIVER: overlay
+    CONTAINER_D6_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+
+#sonarqube_publish_feature_job:
+#    image: sonarsource/sonar-scanner-cli:latest
+#    only: 
+#        - master
+#        - develop
+#        - merge_requests
+#    tags: 
+#        - node-scanner
+#    stage: analysis
+#    script:
+#        - echo $SONAR_TOKEN
+#        - sonar-scanner -X -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_TOKEN -Dsonar.analysis.mode=publish -Dsonar.projectKey=$CI_PROJECT_NAME -Dsonar.sources=. -Dsonar.gitlab.project_id=$CI_PROJECT_PATH -Dsonar.gitlab.commit_sha=$CI_COMMIT_SHA -Dsonar.gitlab.ref_name=$CI_COMMIT_REF_NAME -Dsonar.sourceEncoding=UTF-8
+
+
+
+services:
+  - docker:dind
+
+before_script:
+  - docker version
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  - ls -la
+  - chmod +x ./setup_env.sh
+  - ./setup_env.sh
+
+prebuildd6:
+  image: gitlab/dind
+  stage: prebuildd6
+  script:
+    - docker build --tag $CONTAINER_D6_IMAGE .
+  only:
+    - merge_requests
+
+buildd6:
+  image: gitlab/dind
+  stage: buildd6
+  script:
+    - docker build --tag $CONTAINER_D6_IMAGE .
+    - docker push $CONTAINER_D6_IMAGE
+  only:
+    - develop
+
+deployd6:
+  image: gitlab/dind
+  stage: deployd6
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - develop
+  script:
+    - eval `ssh-agent -s`
+
+    - bash -c 'echo "$SSH_D6_PRIVATE_KEY" | ssh-add -'
+    - mkdir -p ~/.ssh
+
+    - ssh-keyscan -H $SSH_D6_SERVER_IP >> ~/.ssh/known_hosts
+
+    - mkdir -p ~/.ssh
+
+    - chmod 644 ~/.ssh/known_hosts
+
+    - >
+      ssh $SSH_D6_USER@$SSH_D6_SERVER_IP
+      "docker login -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY};
+      cd ${PATH_TO_D6_PROJECT};
+      docker pull ${CONTAINER_D6_IMAGE};
+      docker-compose down;
+      docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d;
+      docker image prune -f;"
+    
+#deploySNP:
+#  image: gitlab/dind
+#  stage: deploySNP
+#  variables:
+#    GIT_STRATEGY: none
+#  only:
+#    - develop
+#  script:
+#    - eval `ssh-agent -s`
+#
+#    - bash -c 'echo "$SSH_SNP_PRIVATE_KEY" | ssh-add -'
+#    - mkdir -p ~/.ssh
+#
+#    - ssh-keyscan -H $SSH_SNP_SERVER_IP >> ~/.ssh/known_hosts
+#
+#    - mkdir -p ~/.ssh
+#
+#    - chmod 644 ~/.ssh/known_hosts
+#
+#    - >
+#      ssh $SSH_SNP_USER@$SSH_SNP_SERVER_IP
+#      "docker login -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD} ${CI_REGISTRY};
+#      cd ${PATH_TO_SNP_PROJECT};
+#      docker pull ${CONTAINER_D6_IMAGE};
+#      docker-compose down;
+#      docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d;
+#      docker image prune -f;"

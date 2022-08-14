@@ -1,0 +1,112 @@
+{
+  "common": {
+    "action": "Hành động",
+    "create": "Tạo",
+    "update": "Sửa",
+    "ignore": "Bỏ qua",
+    "done": "Hoàn thành"
+  },
+  "report-qc-operation-product": {
+    "i": "STT",
+    "moName": "Tên Lệnh Sản Xuất",
+    "itemName": "Tên Sản Phẩm",
+    "routingName": "Tên qui trình",
+    "producingStepName": "Tên Công Đoạn",
+    "quantity": "SL Kế Hoạch",
+    "actualQuantity": "SL Sản Xuất",
+    "totalUnQcQuantity": "SL Cần QC",
+    "totalQcQuantity": "SL Đã QC",
+    "errorQuantity": "SL Lỗi",
+    "totalQcRejectQuantity": "SL Lỗi Còn Lại"
+  },
+  "report-input": {
+    "id": "STT",
+    "stageName": "Công đoạn QC",
+    "orderName": "Tên lệnh",
+    "itemName": "Tên sản phẩm",
+    "planQuantity": "Số lượng kế hoạch",
+    "actualQuantity": "Số lượng đã nhập",
+    "needQCQuantity": "Số lượng cần QC",
+    "doneQCQuantity": "Số lượng đã QC",
+    "errorQuantity": "Số lượng lỗi"
+  },
+  "report-output": {
+    "id": "STT",
+    "stageName": "Công đoạn QC",
+    "orderName": "Tên lệnh",
+    "itemName": "Tên sản phẩm",
+    "planQuantity": "Số lượng kế hoạch",
+    "actualQuantity": "Số lượng đã xuất",
+    "needQCQuantity": "Số lượng cần QC",
+    "doneQCQuantity": "Số lượng đã QC",
+    "errorQuantity": "Số lượng lỗi"
+  },
+  "action-category": {
+    "id": "STT",
+    "code": "Mã nhóm đối sách",
+    "name": "Tên nhóm đôi sách",
+    "description": "Mô tả",
+    "createdAt": "Ngày tạo"
+  },
+  "cause-group": {
+    "id": "STT",
+    "code": "Mã nhóm nguyên nhân",
+    "name": "Tên nhóm nguyên nhân",
+    "description": "Mô tả",
+    "createdAt": "Ngày tạo"
+  },
+  "error-group": {
+    "id": "STT",
+    "code": "Mã nhóm lỗi",
+    "name": "Tên nhóm lỗi",
+    "description": "Mô tả",
+    "createdAt": "Ngày tạo"
+  },
+  "check-list": {
+    "id": "STT",
+    "code": "Mã danh sách kiểm tra",
+    "name": "Tên danh sách kiểm tra",
+    "description": "Mô tả về danh sách kiểm tra",
+    "status": "Trạng thái"
+  },
+  "quality-point": {
+    "id": "STT",
+    "code": "Mã tiêu chí",
+    "name": "Tên tiêu chí",
+    "qcStageName": "Công đoạn",
+    "username": "Người thực hiện",
+    "status": "Trạng thái",
+    "description": "Mô tả về tiêu chí",
+    "itemCode": "Mã sản phẩm",
+    "qualityPointUser1s": "Người thực hiện 1",
+    "checkListCode": "Mã danh sách kiểm tra",
+    "formality": "Hình thức QC",
+    "numberOfTime": "Số lần QC",
+    "quantity": "Số lần QC",
+    "errorAcceptanceRate": "Lỗi chấp nhận",
+    "qualityPointUser2s": "Người thực hiện 2",
+    "stage": "Công đoạn QC"
+  },
+  "error-report": {
+    "code": "Mã phiếu",
+    "name": "Tên phiéu",
+    "qcStageName": "Công đoạn QC",
+    "orderName": "Tên lệnh",
+    "transactionHistoryCode": "Mã giao dịch",
+    "transactionHistoryCreatedAt": "Ngày thực hiện",
+    "transactionHistoryCreatedByUser": "Người thực hiện",
+    "transactionHistoryConsignmentName": "Số lô",
+    "priority": "Độ ưu tiên",
+    "repairDeadline": "Kỳ hạn sửa",
+    "errorDescription": "Mô tả",
+    "assignedTo": "Người nhận",
+    "status": "Trạng thái"
+  },
+  "error-report-detail": {
+    "code": "Mã phiếu",
+    "errorGroupName": "Loại lỗi",
+    "causeGroupName": "Nguyên nhân",
+    "errorItemQuantity": "Số sản phẩm lỗi",
+    "repairItemQuantity": "Số lượng sửa"
+  }
+}

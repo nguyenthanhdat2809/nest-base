@@ -1,0 +1,122 @@
+import {
+  HOME_GROUP_PERMISSION,
+  HOME_PERMISSION,
+} from '@utils/permissions/app/home';
+import {
+  PRODUCE_STEP_QC_GROUP_PERMISSION,
+  PRODUCE_STEP_QC_PERMISSION,
+} from '@utils/permissions/app/produce-step-qc';
+import {
+  INPUT_QC_GROUP_PERMISSION,
+  INPUT_QC_PERMISSION,
+} from '@utils/permissions/app/input-qc';
+import { OUTPUT_QC_GROUP_PERMISSION, OUTPUT_QC_PERMISSION } from "@utils/permissions/app/output-qc";
+import {
+  LOGIN_GROUP_PERMISSION,
+  LOGIN_PERMISSIONS,
+} from '@utils/permissions/login';
+import {
+  DASHBOARD_GROUP_PERMISSION,
+  DASHBOARD_PERMISSION,
+} from '@utils/permissions/web/dashboard';
+import {
+  QC_PLAN_GROUP_PERMISSION,
+  QC_PLAN_PERMISSION,
+} from '@utils/permissions/web/qc-plan';
+import {
+  WORK_CENTER_QC_PLAN_GROUP_PERMISSION,
+  WORK_CENTER_QC_PLAN_PERMISSION,
+} from '@utils/permissions/web/work-center-qc-plan';
+import {
+  QUALITY_POINT_GROUP_PERMISSION,
+  QUALITY_POINT_PERMISSION,
+} from '@utils/permissions/web/quality-point';
+import {
+  CHECK_LIST_GROUP_PERMISSION,
+  CHECK_LIST_PERMISSION,
+} from '@utils/permissions/web/check-list';
+import {
+  ERROR_REPORT_GROUP_PERMISSION,
+  ERROR_REPORT_PERMISSION,
+} from '@utils/permissions/web/error-report';
+import {
+  ALERT_GROUP_PERMISSION,
+  ALERT_PERMISSION,
+} from '@utils/permissions/web/alert';
+import {
+  ERROR_GROUP_GROUP_PERMISSION,
+  ERROR_GROUP_PERMISSION,
+} from '@utils/permissions/web/error-group';
+import {
+  ACTION_CATEGORY_GROUP_PERMISSION,
+  ACTION_CATEGORY_PERMISSION,
+} from '@utils/permissions/web/action-category';
+import {
+  CAUSE_GROUP_GROUP_PERMISSION,
+  CAUSE_GROUP_PERMISSION,
+} from '@utils/permissions/web/cause-group';
+import {
+  REPORT_GROUP_PERMISSION,
+  REPORT_PERMISSION,
+} from '@utils/permissions/web/report';
+import {
+  TRANSACTION_HISTORY_GROUP_PERMISSION,
+  TRANSACTION_HISTORY_PERMISSION,
+} from '@utils/permissions/web/transaction-history';
+import {
+  USER_GROUP_PERMISSION,
+  USER_PERMISSION,
+} from '@utils/permissions/web/user';
+import {
+  PERMISSION_SETTING_GROUP_PERMISSION,
+  PERMISSION_SETTING_PERMISSION,
+} from '@utils/permissions/web/permission_setting';
+
+export const PERMISSION = [
+  ...HOME_PERMISSION,
+  ...PRODUCE_STEP_QC_PERMISSION,
+  ...INPUT_QC_PERMISSION,
+  ...OUTPUT_QC_PERMISSION,
+  ...LOGIN_PERMISSIONS,
+  ...DASHBOARD_PERMISSION,
+  ...QC_PLAN_PERMISSION,
+  ...WORK_CENTER_QC_PLAN_PERMISSION,
+  ...QUALITY_POINT_PERMISSION,
+  ...CHECK_LIST_PERMISSION,
+  ...ERROR_REPORT_PERMISSION,
+  ...ALERT_PERMISSION,
+  ...ERROR_GROUP_PERMISSION,
+  ...ACTION_CATEGORY_PERMISSION,
+  ...CAUSE_GROUP_PERMISSION,
+  ...REPORT_PERMISSION,
+  ...TRANSACTION_HISTORY_PERMISSION,
+  ...USER_PERMISSION,
+  ...PERMISSION_SETTING_PERMISSION,
+];
+
+export const GROUP_PERMISSION = [
+  HOME_GROUP_PERMISSION,
+  PRODUCE_STEP_QC_GROUP_PERMISSION,
+  INPUT_QC_GROUP_PERMISSION,
+  OUTPUT_QC_GROUP_PERMISSION,
+  LOGIN_GROUP_PERMISSION,
+  DASHBOARD_GROUP_PERMISSION,
+  QC_PLAN_GROUP_PERMISSION,
+  WORK_CENTER_QC_PLAN_GROUP_PERMISSION,
+  QUALITY_POINT_GROUP_PERMISSION,
+  CHECK_LIST_GROUP_PERMISSION,
+  ERROR_REPORT_GROUP_PERMISSION,
+  ALERT_GROUP_PERMISSION,
+  ERROR_GROUP_GROUP_PERMISSION,
+  ACTION_CATEGORY_GROUP_PERMISSION,
+  CAUSE_GROUP_GROUP_PERMISSION,
+  REPORT_GROUP_PERMISSION,
+  TRANSACTION_HISTORY_GROUP_PERMISSION,
+  USER_GROUP_PERMISSION,
+  PERMISSION_SETTING_GROUP_PERMISSION,
+];
+
+export const INSERT_PERMISSION = {
+  permission: PERMISSION,
+  groupPermission: GROUP_PERMISSION,
+};

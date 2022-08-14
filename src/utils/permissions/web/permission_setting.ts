@@ -1,0 +1,34 @@
+import { FORMAT_CODE_PERMISSION, StatusPermission } from '@constant/common';
+
+export const PERMISSION_SETTING_GROUP_PERMISSION = {
+  name: 'Quản lý quyền',
+  code: FORMAT_CODE_PERMISSION + 'PERMISSION_SETTING_GROUP',
+  status: StatusPermission.ACTIVE,
+};
+
+export const CREATE_PERMISSION_SETTING_PERMISSION = {
+  name: 'Tạo quyền',
+  code: FORMAT_CODE_PERMISSION + 'CREATE_PERMISSION_SETTING',
+  status: StatusPermission.ACTIVE,
+  groupPermissionSettingCode: PERMISSION_SETTING_GROUP_PERMISSION.code,
+};
+
+export const UPDATE_PERMISSION_SETTING_PERMISSION = {
+  name: 'Sửa quyền',
+  code: FORMAT_CODE_PERMISSION + 'UPDATE_PERMISSION_SETTING',
+  status: StatusPermission.ACTIVE,
+  groupPermissionSettingCode: PERMISSION_SETTING_GROUP_PERMISSION.code,
+}; 
+
+export const VIEW_PERMISSION_SETTING_PERMISSION = {
+  name: 'Xem quyền',
+  code: FORMAT_CODE_PERMISSION + 'VIEW_PERMISSION_SETTING',
+  status: StatusPermission.ACTIVE,
+  groupPermissionSettingCode: PERMISSION_SETTING_GROUP_PERMISSION.code,
+};
+
+export const PERMISSION_SETTING_PERMISSION = [
+  CREATE_PERMISSION_SETTING_PERMISSION,
+  UPDATE_PERMISSION_SETTING_PERMISSION,
+  VIEW_PERMISSION_SETTING_PERMISSION,
+];

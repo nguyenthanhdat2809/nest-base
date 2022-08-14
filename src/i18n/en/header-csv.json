@@ -1,0 +1,16 @@
+{
+  "common": {
+    "action": "Action",
+    "create": "Create",
+    "update": "Update",
+    "ignore": "Ignore",
+    "done": "Done"
+  },
+  "error-group": {
+    "id": "N.o",
+    "code": "Error group code",
+    "name": "Error group name",
+    "description": "Description",
+    "createdAt": "Created At"
+  }
+}
